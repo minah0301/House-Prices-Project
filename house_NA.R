@@ -224,12 +224,15 @@ str(train$GarageType)
 
 ### GarageYrBlt
 str(train$GarageYrBlt)
-summary(train$GarageYrBlt) #NA가 81개...몇년도로 해야될까..?
+summary(train$GarageYrBlt)
 
 ggplot(data=train,aes(x=GarageYrBlt,y=Id))+ 
   geom_point()+
   theme_minimal()+
   labs(x="Year Garage was Built")
+
+# NA 81개 0으로 변경
+train[which(is.na(train[,"GarageYrBlt"])),"GarageYrBlt"]<-0
 
 ### GarageFinish
 str(train$GarageFinish)
