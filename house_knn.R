@@ -70,7 +70,7 @@ knn_pred<-knn(train=dummy_all_noid_n_train,test = dummy_all_noid_n_test,cl=dummy
 # 4.모델 성능 평가
 CrossTable(x=dummy_all_noid_n_test_labels,y=knn_pred,prop.chisq=FALSE) # knn_pred벡터에 있는 예측된 클래스가 dummy_all_noid_n_test_labels 벡터에 있는 알려진 값과 얼마나 잘 일치하는 가를 평가하는 것임.
 #SalePrice의 low과 high의 비율을 안 맞춰주고 high가 많게 나눠주면 dummy_all_noid_n_test_labels 의 High만 있고 밑에 low가 없어짐
-#결과를 보면 좌측 상단 즉 (Low,Low)는 134개,즉 45%가 집값이 낮고 k-NN알고리즘이 정확히 낮음으로 식별한 경우이다. 우측 하단 즉 (High,High)는 122개, 즉 41%고 분류기와 데이터처리로 판단된 레이블의 집값이 High라는 것에 동의한다.
+#결과를 보면 좌측 상단(참부정,true negative) 즉 (Low,Low)는 134개,즉 45%가 집값이 낮고 k-NN알고리즘이 정확히 낮음으로 식별한 경우이다. 우측 하단(참긍정, true positive) 즉 (High,High)는 122개, 즉 41%고 분류기와 데이터처리로 판단된 레이블의 집값이 High라는 것에 동의한다.
 #다른 대각선에 있는 셀들을 k-NN 방법이 실제 레이블과 일치하지 않는 예시의 개수를 포함한다.
 
 # 5.모델 성능 개선(1.수치 특징 재조정하기 위한 z-점수 표준화, 2.k값 변화)
